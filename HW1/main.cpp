@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstring>
 #include <iostream>
 #include <random>
 
@@ -52,16 +53,20 @@ void print3x3(string stringOfDigits) {
   cout << "+-------+" << endl;
 }
 
+bool isInteger(const char array[]) {
+  int size = strlen(array);
+  for (int i = 0; i < size; i++) {
+    if (!isdigit(array[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 int main(int argCount, char *argValue[]) {
 
-  // checks if there is a command line argument
-  if (argCount < 2) {
-    cerr << "Missing command line argument." << endl;
-    return 1;
-  }
-
-  // checks if the command line argument is a number
-  if (isdigit(argValue[1][0]) == 0) {
+  // checks if there is a command line argument && it is a digit
+  if (argCount != 2 || !isInteger(argValue[1])) {
     cerr << "Invalid command line argument." << endl;
     return 1;
   }
@@ -85,7 +90,7 @@ int main(int argCount, char *argValue[]) {
     cin >> input;
     cout << endl;
     if (!allDigits(input)) { // makes sure all inputed values are digits
-      input = "0000000000";  // if not all digits ensures the loop repeats
+      input = "";            // if not all digits ensures the loop repeats
     }
   } while (input.length() != 9);
 
