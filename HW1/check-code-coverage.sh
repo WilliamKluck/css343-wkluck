@@ -8,7 +8,7 @@ PROG=$0
 EXE="./a.out-code-coverage"
 # How we want to call our executable, 
 # possibly with some command line parameters
-EXEC_PROGRAM="$EXE"
+EXEC_PROGRAM="$EXE $@"
 PROFDATA=$EXE.profdata
 CC=clang++
 
@@ -22,7 +22,7 @@ for p in "${programs[@]}"; do
     fi
 done
 
-$CC -g -std=c++11 -fprofile-instr-generate -fcoverage-mapping *.cpp -o $EXE
+$CC -g -std=c++11 -fprofile-instr-generate -fcoverage-mapping main.cpp -o $EXE
 
 if [ ! -f $EXE ]; then
     echo "ERROR: $PROG: Failed to create executable"
@@ -42,7 +42,7 @@ llvm-profdata merge default.profraw -output=$PROFDATA
 if [ ! -f $PROFDATA ]; then
     echo "ERROR: $PROG: Failed to create $PROFDATA"
 else
-    llvm-cov report -show-functions=1 -Xdemangler=llvm-cxxfilt $EXE -instr-profile=$PROFDATA *.cpp
+    llvm-cov report -show-functions=1 -Xdemangler=llvm-cxxfilt $EXE -instr-profile=$PROFDATA main.cpp
     
     llvm-cov show $EXE -instr-profile=$PROFDATA
 fi

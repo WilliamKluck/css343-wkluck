@@ -1,47 +1,68 @@
+#include <algorithm>
 #include <iostream>
+#include <random>
 
 using namespace std;
 
-bool AllDigits(string const &s) {
-  for (char c : s) {
-    if (!(c >= '0' && c <= '9')) {
-      return false;
-    }
-  }
-  return true;
+// checks if all characters are digits
+bool allDigits(const string &stringOfDigits) {
+  return all_of(stringOfDigits.begin(), stringOfDigits.end(),
+                [](char digit) { return (digit >= '0' && digit <= '9'); });
 }
 
-string shuffleString(string s) {
-  for (int i = 0; i < s.length(); i++) {
+// shuffles the string and returns the result
+string shuffleString(string stringOfDigits) {
+  auto length = stringOfDigits.length();
 
-    srand(time(0));
-    int randomNumber = rand() % s.length();
+  // creates the random number generator
+  random_device randomDevice;
+  mt19937 randomNumberGenerator(randomDevice());
 
-    char temp = s[i];
-    s[i] = s[randomNumber];
-    s[randomNumber] = temp;
-  }
-  return s;
+  // swaps based on random number
+  all_of(stringOfDigits.begin(), stringOfDigits.end(), [&](char &current) {
+    uniform_int_distribution<int> dist(0, static_cast<int>(length) - 1);
+    int randomNumber = dist(randomNumberGenerator);
+
+    swap(current, stringOfDigits[randomNumber]);
+
+    return true;
+  });
+
+  return stringOfDigits;
 }
 
-void print3x3(string s) {
+// prints stringOfDigits in a 3x3 grid
+/*  +-------+
+    | # # # |
+    | # # # |
+    | # # # |
+    +-------+
+*/
+void print3x3(string stringOfDigits) {
   cout << "+-------+" << endl;
-  for (int i = 0; i < s.length(); i++) {
-    if (i % 3 == 0) {
-      cout << "| " << s[i];
-    } else if (i % 3 == 1) {
-      cout << " " << s[i];
+  for (int iterator = 0; iterator < stringOfDigits.length(); iterator++) {
+    if (iterator % 3 == 0) {
+      cout << "| " << stringOfDigits[iterator];
+    } else if (iterator % 3 == 1) {
+      cout << " " << stringOfDigits[iterator];
     } else {
-      cout << " " << s[i] << " |" << endl;
+      cout << " " << stringOfDigits[iterator] << " |" << endl;
     }
   }
   cout << "+-------+" << endl;
 }
 
 int main(int argCount, char *argValue[]) {
+
   // checks if there is a command line argument
   if (argCount < 2) {
     cerr << "Missing command line argument." << endl;
+    return 1;
+  }
+
+  // checks if the command line argument is a number
+  if (isdigit(argValue[1][0]) == 0) {
+    cerr << "Invalid command line argument." << endl;
     return 1;
   }
 
@@ -54,23 +75,28 @@ int main(int argCount, char *argValue[]) {
     return 1;
   }
 
+  // gathers input, loops if input not accepted
   string input;
   do {
     if (input.length() > 0) { // this happens if this do-while loops
       cout << "Invalid number. ";
     }
-    cout << "Please input 9 digits to be randomly shuffled:";
+    cout << "Please input 9 digits to be randomly shuffled: ";
     cin >> input;
-    if (!AllDigits(input)) { // makes sure all inputed values are digits
+    cout << endl;
+    if (!allDigits(input)) { // makes sure all inputed values are digits
       input = "0000000000";  // if not all digits ensures the loop repeats
     }
-  } while (input.length() > 9);
+  } while (input.length() != 9);
 
+  // preserves input, shuffles, and prints each shuffle
   string next = input;
   while (numberOfShuffles > 0) {
     next = shuffleString(next);
     print3x3(next);
     numberOfShuffles--;
   }
+  cout << "Done." << endl;
+
   return 0;
 };
