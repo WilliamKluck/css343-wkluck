@@ -1,4 +1,4 @@
-Fri Jun 23 06:36:05 UTC 2023
+Tue Jun 27 03:30:21 UTC 2023
 Linux LinuxMachine 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
 uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wheel)
 =====================================================
@@ -8,61 +8,66 @@ uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wh
 2. Program output are in the section below
 =====================================================
 Please input 9 digits to be randomly shuffled: 
+The first shuffled output is: 
 +-------+
-| 3 9 8 |
-| 4 1 6 |
-| 2 5 7 |
+| 1 2 3 |
+| 5 6 4 |
+| 9 8 7 |
 +-------+
+The second shuffled output is: 
 +-------+
-| 9 1 4 |
-| 6 2 7 |
-| 8 5 3 |
+| 3 9 2 |
+| 6 1 7 |
+| 5 8 4 |
 +-------+
 Done.
 =====================================================
 3. clang-tidy warnings are in the section below
 =====================================================
-61393 warnings generated.
+61396 warnings generated.
 /home/cssuwbstudent/css343-wkluck/HW1/main.cpp:44:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (int iterator = 0; iterator < stringOfDigits.length(); iterator++) {
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:56:22: error: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:57:22: error: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays,-warnings-as-errors]
 bool isInteger(const char array[]) {
                      ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:57:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:58:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
   int size = strlen(array);
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:57:14: error: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:58:14: error: narrowing conversion from 'size_t' (aka 'unsigned long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions,-warnings-as-errors]
   int size = strlen(array);
              ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:58:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:59:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   for (int i = 0; i < size; i++) {
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:58:19: error: backward branch (for loop) is ID-dependent due to variable reference to 'size' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:59:19: error: backward branch (for loop) is ID-dependent due to variable reference to 'size' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
   for (int i = 0; i < size; i++) {
                   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:59:10: error: implicit conversion 'int' -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:60:10: error: implicit conversion 'int' -> bool [readability-implicit-bool-conversion,-warnings-as-errors]
     if (!isdigit(array[i])) {
         ~^
                            == 0
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:75:26: error: 'atoi' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtol' instead [cert-err34-c,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:76:26: error: 'atoi' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtol' instead [cert-err34-c,-warnings-as-errors]
   int numberOfShuffles = atoi(argValue[1]);
                          ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:85:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:86:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
   do {
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:75:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:76:3: note: inferred assignment of ID-dependent value from ID-dependent  [altera-id-dependent-backward-branch]
   int numberOfShuffles = atoi(argValue[1]);
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:99:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
-  while (numberOfShuffles > 0) {
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:100:3: error: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays,-warnings-as-errors]
+  string loopNames[] = {"first", "second",  "third",  "fourth", "fifth",
   ^
-/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:99:10: error: backward branch (while loop) is ID-dependent due to variable reference to 'numberOfShuffles' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
-  while (numberOfShuffles > 0) {
-         ^
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:102:3: error: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops,-warnings-as-errors]
+  for (int i = 0; i < numberOfShuffles; i++) {
+  ^
+/home/cssuwbstudent/css343-wkluck/HW1/main.cpp:102:19: error: backward branch (for loop) is ID-dependent due to variable reference to 'numberOfShuffles' and may cause performance degradation [altera-id-dependent-backward-branch,-warnings-as-errors]
+  for (int i = 0; i < numberOfShuffles; i++) {
+                  ^
 Suppressed 61380 warnings (61380 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-10 warnings treated as errors
+11 warnings treated as errors
 =====================================================
 4. clang-format warnings are in the section below
 =====================================================
@@ -73,21 +78,21 @@ Running clang-format on ./main.cpp
 =====================================================
 6. valgrind memory test is in the section below. Look for "definitely lost" 
 =====================================================
-==31538== Memcheck, a memory error detector
-==31538== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==31538== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==31538== Command: ./a.out 2
-==31538== Parent PID: 31083
-==31538== 
-==31538== 
-==31538== HEAP SUMMARY:
-==31538==     in use at exit: 0 bytes in 0 blocks
-==31538==   total heap usage: 3 allocs, 3 frees, 77,824 bytes allocated
-==31538== 
-==31538== All heap blocks were freed -- no leaks are possible
-==31538== 
-==31538== For lists of detected and suppressed errors, rerun with: -s
-==31538== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10427== Memcheck, a memory error detector
+==10427== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==10427== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==10427== Command: ./a.out 2
+==10427== Parent PID: 9969
+==10427== 
+==10427== 
+==10427== HEAP SUMMARY:
+==10427==     in use at exit: 0 bytes in 0 blocks
+==10427==   total heap usage: 3 allocs, 3 frees, 77,824 bytes allocated
+==10427== 
+==10427== All heap blocks were freed -- no leaks are possible
+==10427== 
+==10427== For lists of detected and suppressed errors, rerun with: -s
+==10427== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 =====================================================
 7. Code coverage information is in the section below
 =====================================================
@@ -99,11 +104,11 @@ allDigits(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocato
 shuffleString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)                                                  1       1   0.00%        12      12   0.00%         0       0   0.00%
 print3x3(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)                                                      10      10   0.00%        13      13   0.00%         6       6   0.00%
 isInteger(char const*)                                                                                                                          7       7   0.00%         9       9   0.00%         4       4   0.00%
-main                                                                                                                                           17      13  23.53%        31      26  16.13%        14      13   7.14%
+main                                                                                                                                           18      14  22.22%        33      28  15.15%        14      13   7.14%
 main.cpp:allDigits(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)::$_0::operator()(char) const         3       3   0.00%         1       1   0.00%         4       4   0.00%
 main.cpp:shuffleString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)::$_1::operator()(char&) const           1       1   0.00%         6       6   0.00%         0       0   0.00%
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-TOTAL                                                                                                                                          40      36  10.00%        76      71   6.58%        28      27   3.57%
+TOTAL                                                                                                                                          41      37   9.76%        78      73   6.41%        28      27   3.57%
     1|       |#include <algorithm>
     2|       |#include <cstring>
     3|       |#include <iostream>
@@ -159,60 +164,64 @@ TOTAL                                                                           
    53|      0|  cout << "+-------+" << endl;
    54|      0|}
    55|       |
-   56|      0|bool isInteger(const char array[]) {
-   57|      0|  int size = strlen(array);
-   58|      0|  for (int i = 0; i < size; i++) {
-   59|      0|    if (!isdigit(array[i])) {
-   60|      0|      return false;
-   61|      0|    }
-   62|      0|  }
-   63|      0|  return true;
-   64|      0|}
-   65|       |
-   66|      1|int main(int argCount, char *argValue[]) {
-   67|       |
-   68|       |  // checks if there is a command line argument && it is a digit
-   69|      1|  if (argCount != 2 || !isInteger(argValue[1])) {
-   70|      1|    cerr << "Invalid command line argument." << endl;
-   71|      1|    return 1;
-   72|      1|  }
-   73|       |
-   74|       |  // converts command line argument into a integer
-   75|      0|  int numberOfShuffles = atoi(argValue[1]);
-   76|       |
-   77|       |  // checks that command line argument is a single digit
-   78|      0|  if (numberOfShuffles >= 10) {
-   79|      0|    cerr << "Invalid number. Please enter a number less than 10" << endl;
-   80|      0|    return 1;
-   81|      0|  }
-   82|       |
-   83|       |  // gathers input, loops if input not accepted
-   84|      0|  string input;
-   85|      0|  do {
-   86|      0|    if (input.length() > 0) { // this happens if this do-while loops
-   87|      0|      cout << "Invalid number. ";
-   88|      0|    }
-   89|      0|    cout << "Please input 9 digits to be randomly shuffled: ";
-   90|      0|    cin >> input;
-   91|      0|    cout << endl;
-   92|      0|    if (!allDigits(input)) { // makes sure all inputed values are digits
-   93|      0|      input = "";            // if not all digits ensures the loop repeats
-   94|      0|    }
-   95|      0|  } while (input.length() != 9);
-   96|       |
-   97|       |  // preserves input, shuffles, and prints each shuffle
-   98|      0|  string next = input;
-   99|      0|  while (numberOfShuffles > 0) {
-  100|      0|    next = shuffleString(next);
-  101|      0|    print3x3(next);
-  102|      0|    numberOfShuffles--;
-  103|      0|  }
-  104|      0|  cout << "Done." << endl;
-  105|       |
-  106|      0|  return 0;
-  107|      0|};
+   56|       |// checks if the array has only integers (use for command line arguments)
+   57|      0|bool isInteger(const char array[]) {
+   58|      0|  int size = strlen(array);
+   59|      0|  for (int i = 0; i < size; i++) {
+   60|      0|    if (!isdigit(array[i])) {
+   61|      0|      return false;
+   62|      0|    }
+   63|      0|  }
+   64|      0|  return true;
+   65|      0|}
+   66|       |
+   67|      1|int main(int argCount, char *argValue[]) {
+   68|       |
+   69|       |  // checks if there is a command line argument && it is a digit
+   70|      1|  if (argCount != 2 || !isInteger(argValue[1])) {
+   71|      1|    cerr << "Invalid command line argument." << endl;
+   72|      1|    return 1;
+   73|      1|  }
+   74|       |
+   75|       |  // converts command line argument into a integer
+   76|      0|  int numberOfShuffles = atoi(argValue[1]);
+   77|       |
+   78|       |  // checks that command line argument is a single digit
+   79|      0|  if (numberOfShuffles >= 10) {
+   80|      0|    cerr << "Invalid number. Please enter a number less than 10" << endl;
+   81|      0|    return 1;
+   82|      0|  }
+   83|       |
+   84|       |  // gathers input, loops if input not accepted
+   85|      0|  string input;
+   86|      0|  do {
+   87|      0|    if (input.length() > 0) { // this happens if this do-while loops
+   88|      0|      cout << "Invalid number. ";
+   89|      0|    }
+   90|      0|    cout << "Please input 9 digits to be randomly shuffled: ";
+   91|      0|    cin >> input;
+   92|      0|    cout << endl;
+   93|      0|    if (!allDigits(input)) { // makes sure all inputed values are digits
+   94|      0|      input = "0";           // if not all digits ensures the loop repeats
+   95|      0|    }
+   96|      0|  } while (input.length() != 9);
+   97|       |
+   98|       |  // preserves input, shuffles, and prints each shuffle
+   99|      0|  string next = input;
+  100|      0|  string loopNames[] = {"first", "second",  "third",  "fourth", "fifth",
+  101|      0|                        "sixth", "seventh", "eighth", "ninth"};
+  102|      0|  for (int i = 0; i < numberOfShuffles; i++) {
+  103|      0|    cout << "The " << loopNames[i] << " shuffled output is: " << endl;
+  104|      0|    next = shuffleString(next);
+  105|      0|    print3x3(next);
+  106|      0|  }
+  107|       |
+  108|      0|  cout << "Done." << endl;
+  109|       |
+  110|      0|  return 0;
+  111|      0|};
 
-Fri Jun 23 06:36:43 UTC 2023
+Tue Jun 27 03:30:49 UTC 2023
 =====================================================
 To create an output.txt file with all the output from this script
 Run the below command

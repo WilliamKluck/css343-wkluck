@@ -57,7 +57,7 @@ void print3x3(string stringOfDigits) {
 bool isInteger(const char array[]) {
   int size = strlen(array);
   for (int i = 0; i < size; i++) {
-    if (!isdigit(array[i])) {
+    if (isdigit(array[i]) == 0) {
       return false;
     }
   }
