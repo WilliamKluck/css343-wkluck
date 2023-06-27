@@ -4,7 +4,6 @@
 #include <random>
 
 using namespace std;
-
 // checks if all characters are digits
 bool allDigits(const string &stringOfDigits) {
   return all_of(stringOfDigits.begin(), stringOfDigits.end(),
@@ -53,6 +52,7 @@ void print3x3(string stringOfDigits) {
   cout << "+-------+" << endl;
 }
 
+// checks if the array has only integers (use for command line arguments)
 bool isInteger(const char array[]) {
   int size = strlen(array);
   for (int i = 0; i < size; i++) {
