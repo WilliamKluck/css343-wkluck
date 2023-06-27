@@ -4,6 +4,7 @@
 #include <random>
 
 using namespace std;
+
 // checks if all characters are digits
 bool allDigits(const string &stringOfDigits) {
   return all_of(stringOfDigits.begin(), stringOfDigits.end(),
@@ -96,11 +97,14 @@ int main(int argCount, char *argValue[]) {
 
   // preserves input, shuffles, and prints each shuffle
   string next = input;
-  while (numberOfShuffles > 0) {
+  string loopNames[] = {"first", "second",  "third",  "fourth", "fifth",
+                        "sixth", "seventh", "eighth", "ninth"};
+  for (int i = 0; i < numberOfShuffles; i++) {
+    cout << "The " << loopNames[i] << " shuffled output is: " << endl;
     next = shuffleString(next);
     print3x3(next);
-    numberOfShuffles--;
   }
+
   cout << "Done." << endl;
 
   return 0;
