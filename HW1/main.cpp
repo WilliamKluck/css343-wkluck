@@ -90,7 +90,7 @@ int main(int argCount, char *argValue[]) {
     cin >> input;
     cout << endl;
     if (!allDigits(input)) { // makes sure all inputed values are digits
-      input = "";            // if not all digits ensures the loop repeats
+      input = "0";           // if not all digits ensures the loop repeats
     }
   } while (input.length() != 9);
 
